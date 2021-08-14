@@ -1,24 +1,13 @@
 # chatroom
 
-## Project setup
+## 安装依赖
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### 启动项目
 ```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
+yarn run local-serve
 ```
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+访问[chatroom](http://localhost:8080/)
