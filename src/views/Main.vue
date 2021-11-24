@@ -159,7 +159,7 @@
 
                           <v-btn color="error"
                                  @click="leaveRoom(item.id)">
-                            删除
+                            退出
                           </v-btn>
                         </v-card-actions>
                       </v-card>
@@ -389,26 +389,45 @@ export default {
   },
   data () {
     return {
+      //当前聊天对象id
       toId: '',
+      //好友列表
       friends: [],
+      //房间列表
       rooms: [],
+      //聊天类型
       type: '',
+      //房间用户列表
       roomUsers: [],
 
+      //显示聊天页面
       showChatFrame: false,
+      //添加好友对话框
       addDialog: false,
+      //好友申请对话框
       reqDialog: false,
+      //删除好友对话框
       deleteDialog: false,
+      //退出房间对话框
       leaveRoomDialog: false,
+      //加入房间对话框
       enterDialog: false,
+      //创建房间对话框
       createDialog: false,
+      //显示房间用户列表
       roomUserDialog: false,
 
+      //添加好友名
       friendReqUsername: '',
+      //好友申请信息
       requestMessage: '',
+      //加入房间名
       enterRoomName: '',
+      //创建房间名
       createRoomName: '',
+      //消息提示
       snackbar: false,
+      //消息内容
       text: '',
 
       //请求列表
@@ -416,9 +435,11 @@ export default {
     }
   },
   methods: {
+    //展示聊天页面
     isShow () {
       this.show = !this.show
     },
+    //获取好友列表
     getFriends () {
       friendsApi.getFriends(this.id).then(response => {
         //追加active
@@ -430,6 +451,7 @@ export default {
         })
       })
     },
+    //获取房间列表
     getRooms () {
       roomApi.getRooms(this.id).then(response => {
         this.rooms = response.data.rooms.map(e => {
