@@ -26,7 +26,10 @@ const user = {
     },
     SET_ID: (state, id) => {
       state.id = id
-    }
+    },
+    SET_SIGN: (state, sign) => {
+      state.sign = sign
+    },
   },
 
   actions: {
@@ -52,6 +55,7 @@ const user = {
           commit('SET_ID', data.id)
           commit('SET_NAME', data.name)
           commit('SET_AVATAR', data.avatar)
+          commit('SET_SIGN', data.sign)
           resolve(response)
         }).catch(error => {
           reject(error)

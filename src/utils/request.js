@@ -12,7 +12,7 @@ const service = axios.create({
 //request拦截器
 service.interceptors.request.use(
   config => {
-    console.log("into request拦截器")
+    // console.log("into request拦截器")
     if (store.getters.token) {
       config.headers['chat_token'] = getToken() //让每个请求携带自定义token
     }
@@ -27,7 +27,7 @@ service.interceptors.request.use(
 //response拦截器
 service.interceptors.response.use(
   response => {
-    console.log("into response拦截器")
+    // console.log("into response拦截器")
     // code不是20000即出现错误
     const res = response.data
     if (res.code != 20000) {

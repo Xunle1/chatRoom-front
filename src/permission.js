@@ -7,11 +7,11 @@ import { getToken } from './utils/auth'
 
 const whiteList = ['/login', '/register'] //不重定向白名单
 router.beforeEach((to, from, next) => {
-  console.log("into permission")
+  // console.log("into permission")
   // to and from are both route objects. must call `next`.
   nProgress.start()
   if (getToken()) {
-    console.log("into permission getToken")
+    // console.log("into permission getToken")
     if (to.path === '/login' || to.path === '/register') {
       next({ path: '/' })
       nProgress.done()

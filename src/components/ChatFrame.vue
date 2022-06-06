@@ -15,20 +15,22 @@
                         :item-height="50"
                         height="700px">
         <template v-slot="{ item }">
-          <v-chip :class="item.fromId == id ? 'sendMessage':'recieveMessage'"
-                  outlined>{{item.sendTime}}</v-chip>
-          <v-chip v-if="item.type === 0"
-                  :class="item.fromId == id ? 'sendMessage':'recieveMessage'"
-                  :color="item.fromId == id ? 'cyan':'gray'"
-                  label
-                  pill
-                  :text-color="item.fromId == id ? 'wihte':'black'">
-            {{item.content}}
-          </v-chip>
-          <v-img v-if="item.type === 1"
-                 width="150px"
-                 :class="item.fromId == id ? 'sendMessage':'recieveMessage'"
-                 :src="item.content"></v-img>
+          <div class="frame">
+            <v-chip :class="item.fromId == id ? 'sendMessage':'recieveMessage'"
+                    outlined>{{item.sendTime}}</v-chip>
+            <v-chip v-if="item.type === 0"
+                    :class="item.fromId == id ? 'sendMessage':'recieveMessage'"
+                    :color="item.fromId == id ? 'cyan':'gray'"
+                    label
+                    pill
+                    :text-color="item.fromId == id ? 'wihte':'black'">
+              {{item.content}}
+            </v-chip>
+            <v-img v-if="item.type === 1"
+                   width="150px"
+                   :class="item.fromId == id ? 'sendMessage':'recieveMessage'"
+                   :src="item.content"></v-img>
+          </div>
         </template>
       </v-virtual-scroll>
     </v-row>
@@ -72,6 +74,18 @@ export default {
   props: ['toId', 'chating', 'type'],
   created () {
     this.connection()
+  },
+  mounted () {
+    document.querySelector(".v-virtual-scroll__container").style.display = 'flex';
+    document.querySelector(".v-virtual-scroll__container").style.flexDirection = 'column';
+    console.log(document.querySelectorAll(".v-virtual-scroll__container")[0])
+  },
+  updated () {
+    const chipList = document.querySelectorAll(".v-virtual-scroll__container")[0].querySelectorAll('.v-virtual-scroll__item');
+    for (let i = 0; i < chipList.length; i++) {
+      chipList[i].style.position = 'static'
+      chipList[i].style.margin = '10px 0'
+    }
   },
   data () {
     return {

@@ -4,7 +4,7 @@ import Stomp from 'stompjs'
 let stompClient = null
 
 export function initWebSocket (id) {
-  console.log("start")
+  // console.log("start")
   this.connection(id);
   console.log(stompClient)
 }
