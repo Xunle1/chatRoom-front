@@ -78,7 +78,6 @@ export default {
   mounted () {
     document.querySelector(".v-virtual-scroll__container").style.display = 'flex';
     document.querySelector(".v-virtual-scroll__container").style.flexDirection = 'column';
-    console.log(document.querySelectorAll(".v-virtual-scroll__container")[0])
   },
   updated () {
     const chipList = document.querySelectorAll(".v-virtual-scroll__container")[0].querySelectorAll('.v-virtual-scroll__item');
@@ -137,7 +136,7 @@ export default {
       this.content = ''
     },
     connection () {
-      this.socket = new SockJS('http://localhost:8000/websocket')
+      this.socket = new SockJS('http://47.98.149.186:8000/websocket')
       this.stompClient = Stomp.over(this.socket)
 
       this.stompClient.connect({}, this.onConnected, this.onFailed)

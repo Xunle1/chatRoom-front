@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "local-serve": "vue-cli-service serve --mode development"
+    "local-serve": "vue-cli-service serve --mode development",
+    "build:prod": "vue-cli-service build --mode production"
   },
   "dependencies": {
     "axios": "^0.21.1",
